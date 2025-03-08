@@ -19,7 +19,7 @@ public class ServiPregunta extends Empaquetador
     {
         Pregunta _NovoPregunta = desempaquetar(_dto);
 
-        if (!compo(_repoPregunta.save(_NovoPregunta)));
+        if (!compo(_repoPregunta.save(_NovoPregunta)))
             throw new NullPointerException("Controlador:(ServiPregunta->crearPregunta) No se pudo crear la pregunta.");
     }
 }

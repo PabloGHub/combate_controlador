@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS pregunta
     respuesta TEXT NOT NULL,
     fallo1 TEXT NOT NULL,
     fallo2 TEXT NOT NULL,
-    fallo3 TEXT NOT NULL
+    fallo3 TEXT NOT NULL,
+    ban BOOLEAN NOT NULL
 );
 
 -- Tabla: respuesta

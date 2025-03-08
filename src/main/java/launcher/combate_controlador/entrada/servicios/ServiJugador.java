@@ -21,6 +21,8 @@ public class ServiJugador extends Empaquetador
     @Autowired
     private JugadorRepositorio _repoJugador;
 
+    private ServiRespuesta _serviRespuesta;
+
     public void crearJugador(String _nombre_s)
     {
         Jugador _jugador = new Jugador(null, _nombre_s);
@@ -41,7 +43,7 @@ public class ServiJugador extends Empaquetador
                 .filter(this::compo)
                 .forEach(_individuo ->
                 {
-                    List<Respuesta> _lista_l = new ServiRespuesta().darmeTodo()
+                    List<Respuesta> _lista_l = _serviRespuesta.darmeTodo()
                             .stream()
                             .filter(r -> Objects.equals(_individuo.getIdJugador(), _individuo.getIdJugador()))
                             .filter(Respuesta::getAcertada)
