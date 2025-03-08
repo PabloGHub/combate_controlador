@@ -21,6 +21,7 @@ public class ServiJugador extends Empaquetador
     @Autowired
     private JugadorRepositorio _repoJugador;
 
+    @Autowired
     private ServiRespuesta _serviRespuesta;
 
     public void crearJugador(String _nombre_s)

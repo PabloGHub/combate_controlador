@@ -19,6 +19,7 @@ public class ServiRespuesta extends Empaquetador
     @Autowired
     private RespuestaRepositorio _repoRespuesta;
 
+    @Autowired
     private ServiPregunta _serviPregunta;
 
     public List<Respuesta> darmeTodo()
@@ -59,6 +60,9 @@ public class ServiRespuesta extends Empaquetador
         {
             float _PorAcertadas_f = (float) _cantidadAcertadas_long / _cantidadTotal_long;
             float _PorFallidas_f = (float) _cantidadFallidas_long / _cantidadTotal_long;
+
+            if (_serviPregunta == null)
+                throw new NullPointerException("Controlador:(ServiResponder->responder) PORQUE _serviPregunta ES NULL!!.");
 
             if (_PorAcertadas_f > 0.67f || _PorFallidas_f > 0.67f)
                 _serviPregunta.banearPregunta(_respuesta_o.getIdRespuesta());

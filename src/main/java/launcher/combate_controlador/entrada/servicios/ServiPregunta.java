@@ -19,6 +19,7 @@ public class ServiPregunta extends Empaquetador
     @Autowired
     private PreguntaRepositorio _repoPregunta;
 
+    @Autowired
     private ServiRespuesta _serviRespuesta;
 
 
