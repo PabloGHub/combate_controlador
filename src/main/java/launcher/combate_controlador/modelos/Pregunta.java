@@ -36,4 +36,7 @@ public class Pregunta {
 
     @Column(name = "fallo3", nullable = false)
     private String fallo3;
+
+    @Column(name = "ban", nullable = false)
+    private Boolean ban;
 }

@@ -1,7 +1,7 @@
 package launcher.combate_controlador.entrada.servicios;
 
-import launcher.combate_controlador.dtos.DTOjugadorMenu;
-import launcher.combate_controlador.dtos.DTOlistarJugadores;
+import launcher.combate_controlador.dtos.listar_jugadores.DTOjugadorMenu;
+import launcher.combate_controlador.dtos.listar_jugadores.DTOlistarJugadores;
 import launcher.combate_controlador.modelos.Jugador;
 import launcher.combate_controlador.modelos.Respuesta;
 import launcher.combate_controlador.repositorios.JugadorRepositorio;

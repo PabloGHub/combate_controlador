@@ -1,6 +1,6 @@
 package launcher.combate_controlador.entrada.controladores;
 
-import launcher.combate_controlador.dtos.DTOlistarJugadores;
+import launcher.combate_controlador.dtos.listar_jugadores.DTOlistarJugadores;
 import launcher.combate_controlador.entrada.servicios.ServiJugador;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

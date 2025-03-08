@@ -1,13 +1,18 @@
 package launcher.combate_controlador.entrada.servicios;
 
+import launcher.combate_controlador.dtos.pregunta.DTOpreguntaIndividual;
+import launcher.combate_controlador.dtos.pregunta.DTOrespuestaIndividual;
 import launcher.combate_controlador.modelos.*;
 import launcher.combate_controlador.repositorios.*;
 import launcher.combate_controlador.dtos.*;
-import launcher.combate_controlador.dtos.DTOlistarJugadores.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 @Component
@@ -43,6 +48,55 @@ public class Empaquetador
 
 
     // ****************** Pregunta ****************** //
+    DTOpreguntaIndividual empaquetar(Pregunta _pregunta_o)
+    {
+        if (!compo(_pregunta_o))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) Datos nulos, HDP.");
+
+        if (!compo(_pregunta_o.getIdPregunta()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getIdPregunta nulos.");
+
+        if (!compo(_pregunta_o.getJugador()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getJugador nulos.");
+
+        if (!compo(_pregunta_o.getPregunta()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getPregunta nulos.");
+
+        if (!compo(_pregunta_o.getRespuesta()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getRespuesta nulos.");
+
+        if (!compo(_pregunta_o.getFallo1()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo1 nulos.");
+
+        if (!compo(_pregunta_o.getFallo2()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo2 nulos.");
+
+        if (!compo(_pregunta_o.getFallo3()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo3 nulos.");
+
+        if (!compo(_pregunta_o.getBan()))
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getBan nulos.");
+
+
+        List<DTOrespuestaIndividual> _listaRespuestas = new ArrayList<>(List.of
+        (
+                new DTOrespuestaIndividual(_pregunta_o.getRespuesta(), true),
+                new DTOrespuestaIndividual(_pregunta_o.getFallo1(), false),
+                new DTOrespuestaIndividual(_pregunta_o.getFallo2(), false),
+                new DTOrespuestaIndividual(_pregunta_o.getFallo3(), false)
+        ));
+        Collections.shuffle(_listaRespuestas);
+
+
+        return new DTOpreguntaIndividual
+        (
+                _pregunta_o.getIdPregunta(),
+                _pregunta_o.getJugador().getIdJugador(),
+                _pregunta_o.getPregunta(),
+                _listaRespuestas
+        );
+    }
+
     Pregunta desempaquetar(DTOcrearPregunta _dtoCrearPregunta_o)
     {
         if (!compo(_dtoCrearPregunta_o))

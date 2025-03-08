@@ -1,4 +1,4 @@
-package launcher.combate_controlador.dtos;
+package launcher.combate_controlador.dtos.listar_jugadores;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
