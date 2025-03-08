@@ -1,6 +1,7 @@
 package launcher.combate_controlador.entrada.controladores;
 
 import launcher.combate_controlador.dtos.DTOcrearPregunta;
+import launcher.combate_controlador.dtos.pregunta.DTOpreguntaIndividual;
 import launcher.combate_controlador.entrada.servicios.ServiPregunta;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,8 +24,8 @@ public class ControladorPregunta
     }
 
     @RequestMapping("/aleatoria")
-    public void preguntaAleatoria(@RequestParam Integer _idJugador)
+    public DTOpreguntaIndividual preguntaAleatoria(@RequestParam Integer _idJugador)
     {
-        serviPregunta.preguntaAleatoria(_idJugador);
+        return serviPregunta.preguntaAleatoria(_idJugador);
     }
 }

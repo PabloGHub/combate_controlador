@@ -21,8 +21,6 @@ public class ServiPregunta extends Empaquetador
 
     private ServiRespuesta _serviRespuesta;
 
-    private Random _random = new Random();
-
 
     public Pregunta darmeUna(Integer _idPregunta)
     {
@@ -72,7 +70,7 @@ public class ServiPregunta extends Empaquetador
         if (_preguntas.isEmpty())
             throw new NullPointerException("No hay preguntas disponibles.");
 
-        Pregunta _pregunta = _preguntas.get(_random.nextInt(_preguntas.size()));
+        Pregunta _pregunta = _preguntas.get(new Random().nextInt(_preguntas.size()));
         return empaquetar(_pregunta);
     }
 }

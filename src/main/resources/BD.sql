@@ -43,3 +43,12 @@ CREATE TABLE IF NOT EXISTS respuesta
 );
 
 -- DROP SCHEMA IF EXISTS supervivencia_preguntas CASCADE;
+
+
+-- DATOS:
+INSERT INTO pregunta (id_jugador, pregunta, respuesta, fallo1, fallo2, fallo3, ban) VALUES
+(1, 'En qué año nació San Ignacio de Loyola?', '1491', '1521', '1456', '1505', FALSE),
+(1, 'Cómo se llamaba San Ignacio de Loyola antes de convertirse en religioso?', 'Íñigo López de Loyola', 'Juan de Borja', 'Francisco de Jaso', 'Pedro Fabro', FALSE),
+(1, 'Qué hecho marcó la conversión de San Ignacio de Loyola?', 'Una herida en la pierna durante la batalla de Pamplona', 'Un naufragio en el mar Mediterráneo', 'La muerte de su hermano en combate', 'Una visión en un monasterio de Francia', FALSE),
+(1, 'Cuál es el nombre de la orden religiosa fundada por San Ignacio de Loyola?', 'Compañía de Jesús', 'Orden de los Cartujos', 'Hermanos Franciscanos', 'Congregación de los Agustinos', FALSE),
+(1, 'Dónde murió San Ignacio de Loyola?', 'Roma', 'París', 'Loyola', 'Jerusalén', FALSE);
