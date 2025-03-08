@@ -19,9 +19,6 @@ public class ServiPregunta extends Empaquetador
     @Autowired
     private PreguntaRepositorio _repoPregunta;
 
-    @Autowired
-    private ServiRespuesta _serviRespuesta;
-
 
     public Pregunta darmeUna(Integer _idPregunta)
     {
@@ -35,7 +32,10 @@ public class ServiPregunta extends Empaquetador
 
     public void banearPregunta(Integer _idPregunta)
     {
-        Pregunta _pregunta = darmeUna(_idPregunta);
+        System.out.println("\nServiPregunta::banearPregunta");
+        System.out.println("_idPregunta: " + _idPregunta);
+
+        Pregunta _pregunta = _repoPregunta.findById(_idPregunta).orElse(null);
 
         if (_pregunta == null)
             throw new NullPointerException("Controlador:(ServiPregunta->banearPregunta) No se encontro la pregunta.");
@@ -47,20 +47,25 @@ public class ServiPregunta extends Empaquetador
 
     public void crearPregunta(DTOcrearPregunta _dto)
     {
-        Pregunta _NovoPregunta = desempaquetar(_dto);
+        System.out.println("\nServiPregunta::crearPregunta");
+        System.out.println("_dto: " + _dto);
 
+        Pregunta _NovoPregunta = desempaquetar(_dto);
         if (!compo(_repoPregunta.save(_NovoPregunta)))
             throw new NullPointerException("Controlador:(ServiPregunta->crearPregunta) No se pudo crear la pregunta.");
     }
 
     public DTOpreguntaIndividual preguntaAleatoria(Integer _idJugador)
     {
+        System.out.println("\nServiPregunta::preguntaAleatoria");
+        System.out.println("_idJugador: " + _idJugador);
+
         List<Pregunta> _preguntas = darmeTodo()
                 .stream()
                 .filter(p -> !p.getBan())
                 .filter(p ->
                 {
-                    return _serviRespuesta.darmeTodo()
+                    return super._repoRespuesta.findAll()
                             .stream()
                             .filter(r -> r.getJugador().getIdJugador().equals(_idJugador))
                             .filter(r -> r.getAcertada())
@@ -70,6 +75,8 @@ public class ServiPregunta extends Empaquetador
 
         if (_preguntas.isEmpty())
             throw new NullPointerException("No hay preguntas disponibles.");
+
+        System.out.println("Preguntas disponibles: " + _preguntas);
 
         Pregunta _pregunta = _preguntas.get(new Random().nextInt(_preguntas.size()));
         return empaquetar(_pregunta);

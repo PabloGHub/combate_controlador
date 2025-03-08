@@ -26,14 +26,18 @@ public class ServiJugador extends Empaquetador
 
     public void crearJugador(String _nombre_s)
     {
-        Jugador _jugador = new Jugador(null, _nombre_s);
+        System.out.println("\nServiJugador::crearJugador");
+        System.out.println("_nombre_s: " + _nombre_s);
 
+        Jugador _jugador = new Jugador(null, _nombre_s);
         if (!compo(_repoJugador.save(_jugador)))
             throw new NullPointerException("Controlador:(ServiJugador->crearJugador) No se pudo crear el jugador.");
     }
 
     public DTOlistarJugadores listarJugadores()
     {
+        System.out.println("\nServiJugador::listarJugadores");
+
         ArrayList<DTOjugadorMenu> _listaJugadores_al = new ArrayList<>();
         List<Jugador> _jugadores = _repoJugador.findAll();
 
@@ -52,6 +56,8 @@ public class ServiJugador extends Empaquetador
 
                     _listaJugadores_al.add(new DTOjugadorMenu(_individuo.getNombre(), _lista_l.size()));
                 });
+
+        System.out.println("_listaJugadores_al: " + _listaJugadores_al);
 
         return new DTOlistarJugadores(_listaJugadores_al);
     }

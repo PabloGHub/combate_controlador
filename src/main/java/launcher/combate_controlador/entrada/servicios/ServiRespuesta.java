@@ -34,6 +34,8 @@ public class ServiRespuesta extends Empaquetador
 
     public void responder(DTOresponder _dtoresponder_o)
     {
+        System.out.println("\nServiRespuesta::responder");
+
         Respuesta _respuesta_o = desempaquetar(_dtoresponder_o);
         _respuesta_o = _repoRespuesta.save(_respuesta_o);
 
@@ -46,6 +48,7 @@ public class ServiRespuesta extends Empaquetador
                 .filter(r -> r.getPregunta().getIdPregunta().equals(final_respuesta_o1.getPregunta().getIdPregunta()))
                 .filter(r -> r.getAcertada())
                 .count();
+        System.out.println("_cantidadAcertadas_long: " + _cantidadAcertadas_long);
 
         Respuesta final_respuesta_o = _respuesta_o;
         Long _cantidadFallidas_long = _repoRespuesta.findAll()
@@ -53,10 +56,14 @@ public class ServiRespuesta extends Empaquetador
                 .filter(r -> r.getPregunta().getIdPregunta().equals(final_respuesta_o.getPregunta().getIdPregunta()))
                 .filter(r -> !r.getAcertada())
                 .count();
+        System.out.println("_cantidadFallidas_long: " + _cantidadFallidas_long);
+
 
         long _cantidadTotal_long = _cantidadAcertadas_long + _cantidadFallidas_long;
+        System.out.println("_cantidadTotal_long: " + _cantidadTotal_long);
 
-        if (_cantidadTotal_long > 0)
+
+        if (_cantidadTotal_long > 6)
         {
             float _PorAcertadas_f = (float) _cantidadAcertadas_long / _cantidadTotal_long;
             float _PorFallidas_f = (float) _cantidadFallidas_long / _cantidadTotal_long;

@@ -21,13 +21,13 @@ import java.util.List;
 public class Empaquetador
 {
     @Autowired
-    private JugadorRepositorio _repoJugador;
+    protected JugadorRepositorio _repoJugador;
 
     @Autowired
-    private RespuestaRepositorio _repoRespuesta;
+    protected RespuestaRepositorio _repoRespuesta;
 
     @Autowired
-    private PreguntaRepositorio _repoPregunta;
+    protected PreguntaRepositorio _repoPregunta;
 
     //Comprobaciones
     public Boolean compo(Object _dato)
