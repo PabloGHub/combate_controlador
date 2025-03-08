@@ -21,7 +21,7 @@ public class ServiJugador extends Empaquetador
     @Autowired
     private JugadorRepositorio _repoJugador;
 
-    void crearJugador(String _nombre_s)
+    public void crearJugador(String _nombre_s)
     {
         Jugador _jugador = new Jugador(null, _nombre_s);
 
@@ -29,7 +29,7 @@ public class ServiJugador extends Empaquetador
             throw new NullPointerException("Controlador:(ServiJugador->crearJugador) No se pudo crear el jugador.");
     }
 
-    DTOlistarJugadores listarJugadores()
+    public DTOlistarJugadores listarJugadores()
     {
         ArrayList<DTOjugadorMenu> _listaJugadores_al = new ArrayList<>();
         List<Jugador> _jugadores = _repoJugador.findAll();
