@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/resp")
+@RequestMapping("/responder")
 @AllArgsConstructor
 public class ControladorRespuesta
 {
     private final ServiRespuesta serviRespuesta;
 
-    @RequestMapping("/responder")
+    @RequestMapping
     public void responder(@RequestBody DTOresponder _dtoresponder_o)
     {
         serviRespuesta.responder(_dtoresponder_o);
