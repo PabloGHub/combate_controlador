@@ -5,6 +5,7 @@ import launcher.combate_controlador.entrada.servicios.ServiJugador;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -16,7 +17,7 @@ public class ControladorJugador
     private final ServiJugador serviJugador;
 
     @GetMapping("/crear")
-    public void crearJugador(String _nombre)
+    public void crearJugador(@RequestParam String _nombre)
     {
         serviJugador.crearJugador(_nombre);
     }
