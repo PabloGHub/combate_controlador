@@ -27,6 +27,6 @@ RUN ls -l target/
 # Expone el puerto 8080
 EXPOSE 8080
 
-# Ejecuta la aplicación
-CMD ["java", "-jar", "target/DI-AD-P1-Backend-0.0.1-SNAPSHOT.jar"]
+# Ejecuta la aplicación-> CMD ["java", "-jar", "target/DI-AD-P1-Backend-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/combate_controlador-0.0.1-SNAPSHOT.jar"]
 
