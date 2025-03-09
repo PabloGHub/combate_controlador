@@ -1,0 +1,33 @@
+Para asegurarte de que tu contenedor Docker se inicie automáticamente cada vez que se inicie el servidor, puedes usar systemd para crear un servicio que gestione el contenedor Docker.
+
+Aquí están los pasos para crear un servicio systemd:
+
+
+Crea un archivo de servicio systemd: Crea un archivo de servicio en /etc/systemd/system/combate_controlador.service con el siguiente contenido:
+
+
+[Unit]
+Description=Combate Controlador Docker Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run --rm --name combate_controlador -p 8080:8080 combate_controlador
+ExecStop=/usr/bin/docker stop combate_controlador
+
+[Install]
+WantedBy=multi-user.target
+Recarga los archivos de configuración de systemd:
+
+
+sudo systemctl daemon-reload
+Habilita el servicio para que se inicie al arrancar:
+
+
+sudo systemctl enable combate_controlador
+Inicia el servicio:
+
+
+sudo systemctl start combate_controlador
+Estos pasos configurarán tu contenedor Docker para que se inicie automáticamente cada vez que el servidor se inicie.
