@@ -1,4 +1,4 @@
--- Active: 1730730652288@@127.0.0.1@5432@supervivencia_preguntas
+-- Active: 1741459211514@@192.168.1.139@5432@supervivencia_preguntas
 
 
 CREATE DATABASE supervivencia_preguntas;
