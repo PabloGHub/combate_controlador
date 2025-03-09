@@ -53,7 +53,7 @@ public class ServiJugador extends Empaquetador
                 {
                     List<Respuesta> _lista_l = _serviRespuesta.darmeTodo()
                             .stream()
-                            .filter(r -> Objects.equals(_individuo.getIdJugador(), _individuo.getIdJugador()))
+                            .filter(r -> Objects.equals(r.getJugador().getIdJugador(), _individuo.getIdJugador()))
                             .filter(Respuesta::getAcertada)
                             .toList();
 
