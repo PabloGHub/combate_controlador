@@ -164,6 +164,7 @@ public class Empaquetador
         if (_NovoPregunta.getFallo3() == null)
             throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos.");
 
+        _NovoPregunta.setBan(false);
 
         return _NovoPregunta;
     }
