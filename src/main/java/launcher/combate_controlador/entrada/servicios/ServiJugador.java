@@ -24,14 +24,17 @@ public class ServiJugador extends Empaquetador
     @Autowired
     private ServiRespuesta _serviRespuesta;
 
-    public void crearJugador(String _nombre_s)
+    public Integer crearJugador(String _nombre_s)
     {
         System.out.println("\nServiJugador::crearJugador");
         System.out.println("_nombre_s: " + _nombre_s);
 
         Jugador _jugador = new Jugador(null, _nombre_s);
-        if (!compo(_repoJugador.save(_jugador)))
+        _jugador = _repoJugador.save(_jugador);
+        if (!compo(_jugador))
             throw new NullPointerException("Controlador:(ServiJugador->crearJugador) No se pudo crear el jugador.");
+
+        return _jugador.getIdJugador();
     }
 
     public DTOlistarJugadores listarJugadores()

@@ -68,11 +68,14 @@ public class ServiRespuesta extends Empaquetador
             float _PorAcertadas_f = (float) _cantidadAcertadas_long / _cantidadTotal_long;
             float _PorFallidas_f = (float) _cantidadFallidas_long / _cantidadTotal_long;
 
+            System.out.println("_PorAcertadas_f: " + _PorAcertadas_f);
+            System.out.println("_PorFallidas_f: " + _PorFallidas_f);
+
             if (_serviPregunta == null)
                 throw new NullPointerException("Controlador:(ServiResponder->responder) PORQUE _serviPregunta ES NULL!!.");
 
-            if (_PorAcertadas_f > 0.67f || _PorFallidas_f > 0.67f)
-                _serviPregunta.banearPregunta(_respuesta_o.getIdRespuesta());
+            if (_PorAcertadas_f > 0.66f || _PorFallidas_f > 0.66f)
+                _serviPregunta.banearPregunta(_respuesta_o.getPregunta().getIdPregunta());
         }
 
     }

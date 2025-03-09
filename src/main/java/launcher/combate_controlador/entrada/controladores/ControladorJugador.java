@@ -14,9 +14,9 @@ public class ControladorJugador
     private final ServiJugador serviJugador;
 
     @PostMapping("/crear")
-    public void crearJugador(@RequestParam String _nombre)
+    public Integer crearJugador(@RequestParam String _nombre)
     {
-        serviJugador.crearJugador(_nombre);
+        return serviJugador.crearJugador(_nombre);
     }
 
     @GetMapping("/listar")
