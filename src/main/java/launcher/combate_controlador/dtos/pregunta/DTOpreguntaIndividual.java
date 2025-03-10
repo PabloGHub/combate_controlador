@@ -12,7 +12,7 @@ import java.util.List;
 public class DTOpreguntaIndividual
 {
     public Integer _idPregunta;
-    public Integer _idJugador;
+    public String _nombreJugador;
     public String _pregunta;
     public List<DTOrespuestaIndividual> _respuestas;
 }

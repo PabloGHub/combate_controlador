@@ -91,7 +91,7 @@ public class Empaquetador
         return new DTOpreguntaIndividual
         (
                 _pregunta_o.getIdPregunta(),
-                _pregunta_o.getJugador().getIdJugador(),
+                _pregunta_o.getJugador().getNombre(),
                 _pregunta_o.getPregunta(),
                 _listaRespuestas
         );
