@@ -74,7 +74,7 @@ public class ServiRespuesta extends Empaquetador
             if (_serviPregunta == null)
                 throw new NullPointerException("Controlador:(ServiResponder->responder) PORQUE _serviPregunta ES NULL!!.");
 
-            if (_PorAcertadas_f > 0.66f || _PorFallidas_f > 0.66f)
+            if (_PorAcertadas_f > 0.60f || _PorFallidas_f > 0.70f) // Base: 0.67f
                 _serviPregunta.banearPregunta(_respuesta_o.getPregunta().getIdPregunta());
         }
 
