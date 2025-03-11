@@ -17,7 +17,7 @@ public class CorsConfig
             public void addCorsMappings(CorsRegistry registry)
             {
                 registry.addMapping("/**") // Aplica CORS a todas las rutas
-                        .allowedOrigins("*") // Permite peticiones desde cualquier origen
+                        .allowedOrigins("http://localhost:8080") // Permite peticiones desde cualquier origen
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
                         .allowedHeaders("*"); // Permite todos los encabezados
             }
