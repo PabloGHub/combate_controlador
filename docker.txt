@@ -1,0 +1,29 @@
+Instala Docker en tu servidor Ubuntu:
+
+
+sudo apt-get update
+sudo apt-get install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+Construye la imagen Docker en tu máquina local:
+
+
+docker build -t combate_controlador .
+Guarda la imagen Docker en un archivo tar:
+
+
+docker save -o combate_controlador.tar combate_controlador
+Copia el archivo tar al servidor Ubuntu:
+
+
+scp combate_controlador.tar your_username@your_server_ip:/path/to/destination
+Carga la imagen Docker en el servidor Ubuntu:
+
+
+ssh your_username@your_server_ip
+sudo docker load -i /path/to/destination/combate_controlador.tar
+Ejecuta el contenedor en el servidor Ubuntu:
+
+
+sudo docker run -d -p 8080:8080 --name c_c combate_controlador
+Esto desplegará tu aplicación en el puerto 8080 de tu servidor Ubuntu.
