@@ -34,6 +34,7 @@ public class ServiJugador extends Empaquetador
         if (!compo(_jugador))
             throw new NullPointerException("Controlador:(ServiJugador->crearJugador) No se pudo crear el jugador.");
 
+        System.out.println("_jugador.getIdJugador(): " + _jugador.getIdJugador());
         return _jugador.getIdJugador();
     }
 

@@ -35,9 +35,11 @@ public class ServiRespuesta extends Empaquetador
     public void responder(DTOresponder _dtoresponder_o)
     {
         System.out.println("\nServiRespuesta::responder");
+        System.out.println("respondiendo: " + _dtoresponder_o);
 
         Respuesta _respuesta_o = desempaquetar(_dtoresponder_o);
         _respuesta_o = _repoRespuesta.save(_respuesta_o);
+        System.out.println("nombre Jugador: " + _respuesta_o.getJugador().getNombre());
 
         if (_respuesta_o == null)
             throw new NullPointerException("Controlador:(ServiResponder->responder) No se pudo responder.");

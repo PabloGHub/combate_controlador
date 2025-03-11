@@ -54,28 +54,28 @@ public class Empaquetador
             throw new NullPointerException("Controlador:(Empaquetador:Pregunta) Datos nulos, HDP.");
 
         if (!compo(_pregunta_o.getIdPregunta()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getIdPregunta nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getIdPregunta ERROR.");
 
         if (!compo(_pregunta_o.getJugador()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getJugador nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getJugador ERROR.");
 
         if (!compo(_pregunta_o.getPregunta()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getPregunta nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getPregunta ERROR.");
 
         if (!compo(_pregunta_o.getRespuesta()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getRespuesta nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getRespuesta ERROR.");
 
         if (!compo(_pregunta_o.getFallo1()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo1 nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo1 ERROR.");
 
         if (!compo(_pregunta_o.getFallo2()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo2 nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo2 ERROR.");
 
         if (!compo(_pregunta_o.getFallo3()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo3 nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getFallo3 ERROR.");
 
         if (!compo(_pregunta_o.getBan()))
-            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getBan nulos.");
+            throw new NullPointerException("Controlador:(Empaquetador:Pregunta) getBan ERROR.");
 
 
         List<DTOrespuestaIndividual> _listaRespuestas = new ArrayList<>(List.of
@@ -100,7 +100,27 @@ public class Empaquetador
     Pregunta desempaquetar(DTOcrearPregunta _dtoCrearPregunta_o)
     {
         if (!compo(_dtoCrearPregunta_o))
-            throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos, HDP.");
+            throw new NullPointerException("Controlador:(desempaquetar:DTOcrearPregunta) Datos nulos, HDP.");
+
+
+        if (!compo(_dtoCrearPregunta_o._pregunta))
+            throw new NullPointerException("Controlador:(desempaquetar:DTOcrearPregunta) getPregunta ERROR.");
+
+        if (!compo(_dtoCrearPregunta_o._respuesta))
+            throw new NullPointerException("Controlador:(desempaquetar:DTOcrearPregunta) getRespuesta ERROR.");
+
+        if (!compo(_dtoCrearPregunta_o._fallo1))
+            throw new NullPointerException("Controlador:(desempaquetar:DTOcrearPregunta) getFallo1 ERROR.");
+
+        if (!compo(_dtoCrearPregunta_o._fallo2))
+            throw new NullPointerException("Controlador:(desempaquetar:DTOcrearPregunta) getFallo2 ERROR.");
+
+        if (!compo(_dtoCrearPregunta_o._fallo3))
+            throw new NullPointerException("Controlador:(desempaquetar:DTOcrearPregunta) getFallo3 ERROR.");
+
+        if (!compo(_dtoCrearPregunta_o._idJugador))
+            throw new NullPointerException("Controlador:(desempaquetar:DTOcrearPregunta) getIdJugador ERROR.");
+
 
 
         //Pregunta _NovoPregunta = _repoPregunta.findById(_dtoCrearPregunta_o._idPregunta).orElse(null);
@@ -117,7 +137,7 @@ public class Empaquetador
                                     null
         );
         if (_NovoPregunta.getJugador() == null)
-            throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos.");
+            throw new NullPointerException("Controlador:(desempaquetar:getJugador) Datos nulos.");
 
         _NovoPregunta.setPregunta
         (
@@ -126,7 +146,7 @@ public class Empaquetador
                                 null
         );
         if (_NovoPregunta.getPregunta() == null)
-            throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos.");
+            throw new NullPointerException("Controlador:(desempaquetar:getPregunta) Datos nulos.");
 
         _NovoPregunta.setRespuesta
         (
@@ -135,7 +155,7 @@ public class Empaquetador
                                 null
         );
         if (_NovoPregunta.getRespuesta() == null)
-            throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos.");
+            throw new NullPointerException("Controlador:(desempaquetar:getRespuesta) Datos nulos.");
 
         _NovoPregunta.setFallo1
         (
@@ -144,7 +164,7 @@ public class Empaquetador
                                 null
         );
         if (_NovoPregunta.getFallo1() == null)
-            throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos.");
+            throw new NullPointerException("Controlador:(desempaquetar:getFallo1) Datos nulos.");
 
         _NovoPregunta.setFallo2
         (
@@ -153,7 +173,7 @@ public class Empaquetador
                                 null
         );
         if (_NovoPregunta.getFallo2() == null)
-            throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos.");
+            throw new NullPointerException("Controlador:(desempaquetar:getFallo2) Datos nulos.");
 
         _NovoPregunta.setFallo3
         (
@@ -162,7 +182,7 @@ public class Empaquetador
                                 null
         );
         if (_NovoPregunta.getFallo3() == null)
-            throw new NullPointerException("Controlador:(Empaquetador:DTOcrearPregunta) Datos nulos.");
+            throw new NullPointerException("Controlador:(desempaquetar:getFallo3) Datos nulos.");
 
         _NovoPregunta.setBan(false);
 

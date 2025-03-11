@@ -74,11 +74,12 @@ public class ServiPregunta extends Empaquetador
                 .toList();
 
         if (_preguntas.isEmpty())
-            throw new NullPointerException("No hay preguntas disponibles.");
+            return new DTOpreguntaIndividual();
 
         System.out.println("Preguntas disponibles: " + _preguntas);
 
         Pregunta _pregunta = _preguntas.get(new Random().nextInt(_preguntas.size()));
+        System.out.println("Pregunta seleccionada: " + _pregunta + "\n");
         return empaquetar(_pregunta);
     }
 }

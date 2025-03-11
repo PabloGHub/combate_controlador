@@ -17,8 +17,8 @@ public class ControladorRespuesta
     private final ServiRespuesta serviRespuesta;
 
     @PostMapping
-    public void responder(@RequestBody DTOresponder _dtoresponder_o)
+    public void responder(@RequestBody DTOresponder _respuesta)
     {
-        serviRespuesta.responder(_dtoresponder_o);
+        serviRespuesta.responder(_respuesta);
     }
 }
