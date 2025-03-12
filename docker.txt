@@ -27,3 +27,9 @@ sudo docker run -d -p 8080:8080 --name c_c combate_controlador
 -it en vez de -d para terminal 
 
 Esto desplegará tu aplicación en el puerto 8080 de tu servidor Ubuntu.
+
+
+
+
+
+docker build -t combate & docker save -o combate.tar combate
