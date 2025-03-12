@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS respuesta
 
 -- DROP SCHEMA IF EXISTS supervivencia_preguntas CASCADE;
 
+-- ME QUIERO MORIRRRR
 
 -- DATOS:
 INSERT INTO pregunta (id_jugador, pregunta, respuesta, fallo1, fallo2, fallo3, ban) VALUES
